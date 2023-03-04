@@ -14,13 +14,14 @@ async function init() {
 async function fetchCities() {
   // TODO: MODULE_CITIES
   // 1. Fetch cities using the Backend API and return the data
-
+try{
   let response = await fetch(`${config.backendEndpoint}/cities`);
   let cities = await response.json();
-  console.log(cities)
   return cities;
+} catch(err){
+  return null;
 }
-
+}
 
 //Implementation of DOM manipulation to add cities
 function addCityToDOM(id, city, description, image) {
