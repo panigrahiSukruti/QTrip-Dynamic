@@ -61,9 +61,8 @@ function addAdventureToDOM(adventures) {
 function filterByDuration(list, low, high) {
   // TODO: MODULE_FILTERS
   // 1. Filter adventures based on Duration and return filtered list
- return list.filter(adventure => adventure.duration > low && adventure.duration <= high);
-
-
+//  return list.filter(adventure => adventure.duration > low && adventure.duration <= high);
+return list.filter(adventure=>adventure.duration>low && adventure.duration<=high);
 }
 
 //Implementation of filtering by category which takes in a list of adventures, list of categories to be filtered upon and returns a filtered list of adventures.
@@ -101,7 +100,6 @@ function filterFunction(list, filters) {
 
 
 
-
   // Place holder for functionality to work in the Stubs
   
 
@@ -109,7 +107,7 @@ function filterFunction(list, filters) {
 function saveFiltersToLocalStorage(filters) {
   // TODO: MODULE_FILTERS
   // 1. Store the filters as a String to localStorage
-  localStorage.setItem("filters",JSON.stringify(filters));
+  localStorage.setItem("filters",JSON.stringify(filters))
   return true;
 }
 

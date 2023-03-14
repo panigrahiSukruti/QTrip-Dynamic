@@ -1,15 +1,17 @@
 import config from "../conf/index.js";
 
 async function init() {
- 
   //Fetches list of all cities along with their images and description
   let cities = await fetchCities();
-  
+
   //Updates the DOM with the cities
-  cities.forEach((key) => {
-    addCityToDOM(key.id, key.city, key.description, key.image);
-  });
+  if (cities) {
+    cities.forEach((key) => {
+      addCityToDOM(key.id, key.city, key.description, key.image);
+    });
+  }
 }
+
 //Implementation of fetch call
 async function fetchCities() {
   // TODO: MODULE_CITIES
@@ -32,7 +34,7 @@ let rowData = document.getElementById("data");
 let colData = document.createElement("div");
 colData.className = "col-6 col-lg-3 mb-4";
 colData.innerHTML = `
-<a href = "pages/adventures/?city=${id}" target="_blank" id="${id}">
+<a href = "pages/adventures/?city=${id}" id="${id}">
 <div class="tile">
 <img src="${image}" alt="${id}"/>
 <div class= "tile-text text-white text-center">
