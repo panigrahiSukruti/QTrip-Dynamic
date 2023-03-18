@@ -98,12 +98,25 @@ function conditionalRenderingOfReservationPanel(adventure) {
   // TODO: MODULE_RESERVATIONS
   // 1. If the adventure is already reserved, display the sold-out message.
 
+  var x = document.getElementById('reservation-panel-available');
+  var y = document.getElementById('reservation-panel-sold-out');
+  if (adventure.available === true) {
+    x.style.display = 'block';
+    y.style.display = 'none';
+
+  } else {
+    x.style.display = 'none';
+    y.style.display = 'block';
+  }
 }
 
 //Implementation of reservation cost calculation based on persons
 function calculateReservationCostAndUpdateDOM(adventure, persons) {
   // TODO: MODULE_RESERVATIONS
   // 1. Calculate the cost based on number of persons and update the reservation-cost field
+let cost = adventure.costPerHead;
+let totalCost = (cost*persons);
+document.getElementById("reservation-cost").innerHTML=totalCost;
 
 }
 
